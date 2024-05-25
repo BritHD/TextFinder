@@ -23,14 +23,6 @@ def find_string_in_files(folder_path, search_string): #finds searched string of 
     with tqdm(total=len(file_paths), desc="Processing files") as pbar:
         for filename in file_paths:
             if os.path.isfile(filename): #check it its a file(if not its a folder)
-                if "TextMap/TextMap" in filename:
-                    if "TextMap/TextMapEN.json" not in filename: #only for english, we don't need anyone else
-                        pbar.update(1)
-                        continue
-                elif '/Readable/' in filename:
-                    if "/Readable/EN" not in filename: #only for english, we don't need anyone else, for now...
-                        pbar.update(1)
-                        continue
                 try:
                     with open(filename, 'r', encoding='utf-8') as file:
                         for line_number, line in enumerate(file, start=1):
